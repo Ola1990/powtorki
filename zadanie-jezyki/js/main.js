@@ -55,12 +55,19 @@ langEnSwitch.addEventListener("click", setLangLabels);
 // ustawiamy domyślny język, ktory jest w html lang=""
 
 function setDefaultLanguage(){
- var langDefault = document.documentElement.lang
- console.log(langDefault);
+ var langDefault = document.documentElement.lang;
+ let elements = document.querySelectorAll('[lang-key]');
+   
+    for (let link of elements){
+     let langKey = link.getAttribute('lang-key');
+        link.innerHTML = lang[langDefault][langKey];
+         console.log(langKey);   
+    }
+
 }
 
 document.addEventListener('DOMContentLoaded', setDefaultLanguage);
 
-//var langDefault = document.getElementsByTagName("html")[0].getAttribute("lang"); lub var langDefault = document.documentElement.lang-- to samo
+//var langDefault = document.getElementsByTagName("html")[0].getAttribute("lang"); lub var langDefault = document.documentElement.lang <-- to samo
 
 
